@@ -1,4 +1,5 @@
-from constants import package_class_mapping
+# Assuming we have a global dictionary to store users
+users_db = {}
 
 class User:
     def __init__(self, username, password, package):
@@ -21,9 +22,14 @@ class User:
         return self.booked_classes < self.max_classes
 
     def register(self):
-        # Logic to register the user
-        pass
+        if self.username in users_db:
+            return "Username already exists."
+        users_db[self.username] = self
+        return "User registered successfully."
 
     def login(self):
-        # Logic to log the user in
-        pass
+        if self.username not in users_db:
+            return "Username does not exist."
+        if users_db[self.username].password != self.password:
+            return "Incorrect password."
+        return "User logged in successfully."
