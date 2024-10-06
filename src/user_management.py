@@ -1,4 +1,4 @@
-from constants import package_class_mapping
+from app_constant import package_class_mapping
 class User:
     users_list ={}
     def __init__(self, username, password, package):
@@ -23,8 +23,13 @@ class User:
     def register(self):
         # Logic to register the user
         if not User.users_list.get(self.username): User.users_list[self.username]= self;
-        # else return "User already exists"
+        else:
+            return "User already exists"
+        return "User registered successfully."
 
     def login(self):
-        # Logic to log the user in
-        pass
+        if self.username not in User.users_list:
+            return "Username does not exist."
+        if User.users_list[self.username].password != self.password:
+            return "Incorrect password."
+        return "User logged in successfully."
