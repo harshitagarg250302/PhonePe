@@ -1,4 +1,4 @@
-from app_constant import package_class_mapping
+from .app_constant import package_class_mapping
 class User:
     users_list ={}
     def __init__(self, username, password, package):
