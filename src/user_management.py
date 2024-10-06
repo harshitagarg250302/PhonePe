@@ -1,6 +1,6 @@
 from constants import package_class_mapping
-
 class User:
+    users_list ={}
     def __init__(self, username, password, package):
         self.username = username
         self.password = password
@@ -22,7 +22,8 @@ class User:
 
     def register(self):
         # Logic to register the user
-        pass
+        if not User.users_list.get(self.username): User.users_list[self.username]= self;
+        # else return "User already exists"
 
     def login(self):
         # Logic to log the user in

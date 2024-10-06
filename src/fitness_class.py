@@ -16,7 +16,7 @@ class FitnessClass:
         self.waitlist.append(user)
     
     def remove_from_waitlist(self, user):
-        self.waitlist.remove(user)
+        del[self.waitlist[0]]
 
     def cancel_class(self, admin):
         # Admin cancels the class and notifies users
